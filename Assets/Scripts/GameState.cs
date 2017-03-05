@@ -144,7 +144,10 @@ public class GameState : MonoBehaviour {
                     StartCoroutine(globalTimeCoroutine);
                     startedGlobalTimeCourtine = true;
                 }
-                Controls.GetComponent<PlayerMovementController>().Controls();
+                if (globalClock<=totalTime-4)
+                {
+                    Controls.GetComponent<PlayerMovementController>().Controls();
+                }
             }
         }
         else
@@ -201,6 +204,10 @@ public class GameState : MonoBehaviour {
         Player2.transform.position = startpos2;
         Player1.transform.rotation = startrot1;
         Player2.transform.rotation = startrot2;
+        Controls.GetComponent<PlayerMovementController>().right1 = false;
+        Controls.GetComponent<PlayerMovementController>().right2 = false;
+        Controls.GetComponent<PlayerMovementController>().left1 = false;
+        Controls.GetComponent<PlayerMovementController>().left2 = false;
     }
 
 }
